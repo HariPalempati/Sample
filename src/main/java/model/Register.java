@@ -1,6 +1,14 @@
 package model;
 
 public class Register {
+	String FirstName;
+	String LastName;
+	String EmailId;
+	String Location;
+	String Username;
+	String Password;
+	String ConfirmPassword;
+	
 	public String getFirstName() {
 		return FirstName;
 	}
@@ -42,20 +50,5 @@ public class Register {
 	}
 	public void setConfirmPassword(String ConfirmPassword) {
 		this.ConfirmPassword = ConfirmPassword;
-	}
-	public String getUsertype() {
-		return Usertype;
-	}
-	public void setUsertype(String Usertype) {
-		this.Usertype = Usertype;
-	}
-	
-	String FirstName;
-	String LastName;
-	String EmailId;
-	String Location;
-	String Username;
-	String Password;
-	String ConfirmPassword;
-	String Usertype;
+	}	
 }

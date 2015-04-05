@@ -1,17 +1,20 @@
 package service;
 
+import java.util.HashMap;
+
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.Register;
 import command.RegisterCommand;
-
 @Path("Register")
 public class RegisterService {
 	ObjectMapper mapper = new ObjectMapper();
@@ -38,20 +41,20 @@ public class RegisterService {
 			}
 			return Response.status(200).entity(i).build();
 		}
-}
-//	    @GET
-//		@Path("metadata")
-//		@Produces({ MediaType.APPLICATION_JSON })
-//		public Response getRegisterMeta() {
-//			Register u = new Register();
-//			try {
-//				@SuppressWarnings("unchecked")
-//				HashMap rHM = mapper.convertValue(u, HashMap.class);
-//				rHM.remove("id");
-//				return Response.status(200).entity(mapper.writeValueAsString(rHM)).build();
-//			} catch (JsonProcessingException e) {
-//				e.printStackTrace();
-//			}
-//			return Response.status(500).build();
-//		}
 
+	    @GET
+		@Path("metadata")
+		@Produces({ MediaType.APPLICATION_JSON })
+		public Response getRegisterMeta() {
+			Register u = new Register();
+			try {
+				@SuppressWarnings("unchecked")
+				HashMap rHM = mapper.convertValue(u, HashMap.class);
+				rHM.remove("id");
+				return Response.status(200).entity(mapper.writeValueAsString(rHM)).build();
+			} catch (JsonProcessingException e) {
+				e.printStackTrace();
+			}
+			return Response.status(500).build();
+		}
+}
